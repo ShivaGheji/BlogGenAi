@@ -71,6 +71,16 @@ export const loginUser = async ({ email, password }) => {
   };
 };
 
+export const aboutUser = async (userId) => {
+  const user = await User.findById(userId);
+  if (!user) {
+    const error = new Error("User not found");
+    error.statusCode = 404;
+    throw error;
+  }
+  return sanitizeUser(user);
+};
+
 export const logoutUser = async (userId) => {
   await User.updateOne({ _id: userId }, { $inc: { tokenVersion: 1 } });
 };

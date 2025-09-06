@@ -1,6 +1,7 @@
 import {
   registerUser,
   loginUser,
+  aboutUser,
   logoutUser,
 } from "../services/auth.service.js";
 import { registerSchema, loginSchema } from "../schemas/auth.schema.js";
@@ -36,6 +37,15 @@ export const signIn = async (req, res, next) => {
         user,
       },
     });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const me = async (req, res, next) => {
+  try {
+    const user = await aboutUser(req.user.id);
+    res.json({ success: true, user });
   } catch (err) {
     next(err);
   }
