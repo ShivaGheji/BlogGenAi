@@ -9,6 +9,6 @@ try {
   app.listen(PORT, () => {
     console.log(`Server is running on port http://localhost:${PORT}`);
   });
-} catch (error) {
-  console.error("MongoDB connection failed:", error);
+} catch (err) {
+  console.error("MongoDB connection failed:", err);
 }

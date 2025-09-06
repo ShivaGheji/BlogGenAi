@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 
 import errorMiddleware from "./middlewares/error.middleware.js";
 import authRoutes from "./routes/auth.routes.js";
+import blogRoutes from "./routes/blog.routes.js";
 import { FRONTEND_ORIGIN } from "./utils/env.js";
 import {
   ensureCsrfCookie,
@@ -29,6 +30,7 @@ app.use(ensureCsrfCookie);
 app.use(csrfProtect);
 
 app.use("/api/auth", authRoutes);
+app.use("/api/blogs", blogRoutes);
 
 app.use(errorMiddleware);
 

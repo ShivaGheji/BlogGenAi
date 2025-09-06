@@ -17,8 +17,8 @@ export const signUp = async (req, res, next) => {
       message: "User registered successfully",
       data: { token, user },
     });
-  } catch (error) {
-    next(error);
+  } catch (err) {
+    next(err);
   }
 };
 
@@ -36,8 +36,8 @@ export const signIn = async (req, res, next) => {
         user,
       },
     });
-  } catch (error) {
-    next(error);
+  } catch (err) {
+    next(err);
   }
 };
 
