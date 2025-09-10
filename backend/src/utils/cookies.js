@@ -4,9 +4,9 @@ export const setAuthCookie = (res, token) => {
   res.cookie(COOKIE_NAME, token, {
     httpOnly: true,
     secure: NODE_ENV === "production",
-    sameSite: "Lax",
+    sameSite: NODE_ENV === "production" ? "none" : "lax",
     path: "/",
-    maxAge: computeMaxAgeFromJwt(),
+    maxAge: 1000 * 60 * 60 * 24, // 1 day
   });
 };
 
@@ -14,12 +14,7 @@ export const clearAuthCookie = (res) => {
   res.clearCookie(COOKIE_NAME, {
     httpOnly: true,
     secure: NODE_ENV === "production",
-    sameSite: "Lax",
+    sameSite: NODE_ENV === "production" ? "none" : "lax",
     path: "/",
   });
-};
-
-export const computeMaxAgeFromJwt = () => {
-  // Fallback: 30 minutes
-  return 30 * 60 * 1000;
 };
