@@ -15,7 +15,7 @@ export default function SignUpModal({ isOpen, onClose }) {
   const submit = async (vals) => {
     setSignupError(null);
     try {
-      await registerUserSignUpModal(vals);
+      await registerUser(vals);
       window.__showToast__ &&
         window.__showToast__("Signed up successfully", "success");
       onClose();

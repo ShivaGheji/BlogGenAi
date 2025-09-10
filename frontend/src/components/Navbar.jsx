@@ -158,7 +158,7 @@ export default function Navbar() {
                   >
                     <div className="px-4 py-2 text-[#0f1419]">
                       <p className="font-medium">{user?.name}</p>
-                      <p className="text-sm">{user?.email}</p>
+                      <p className="text-sm truncate">{user?.email}</p>
                     </div>
                     <hr className="border-t border-[#e1dace]" />
                     <button
