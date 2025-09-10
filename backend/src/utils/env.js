@@ -6,7 +6,6 @@ export const {
   PORT,
   MONGO_URI,
   NODE_ENV,
-  BASE_URL,
   JWT_SECRET,
   JWT_EXPIRES_IN,
   COOKIE_NAME,
