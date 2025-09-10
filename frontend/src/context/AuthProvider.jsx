@@ -8,6 +8,7 @@ export const useAuth = () => useContext(AuthContext);
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [checking, setChecking] = useState(true);
+  const [isSignInOpen, setIsSignInOpen] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -22,20 +23,19 @@ export default function AuthProvider({ children }) {
     })();
   }, []);
 
-  const login = async (creds) => {
-    const res = await authAPI.login(creds);
-    // after successful login, call me to get user
+  const login = async (payload) => {
+    const res = await authAPI.login(payload);
     try {
       const data = await authAPI.me();
       setUser(data.user || data);
+      setIsSignInOpen(false);
     } catch (e) {
-      // fallback: if res includes user
       if (res.user) setUser(res.user);
     }
     return res;
   };
 
-  const register = async (payload) => {
+  const registerUser = async (payload) => {
     const res = await authAPI.register(payload);
     try {
       const data = await authAPI.me();
@@ -52,7 +52,9 @@ export default function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, checking, login, register, logout }}>
+    <AuthContext.Provider
+      value={{ user, checking, login, registerUser, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );

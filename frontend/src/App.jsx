@@ -3,18 +3,18 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
 import History from "./pages/History";
 import BlogPage from "./pages/BlogPage";
+import NotFound from "./pages/NotFound";
 import AuthProvider, { useAuth } from "./context/AuthProvider";
 import Toasts from "./components/Toasts";
+import SignInModal from "./components/SignInModal";
 
 function Protected({ children }) {
   const { user, checking } = useAuth();
   if (checking) return <div>Checking auth...</div>;
-  if (!user) return <Navigate to="/sign-in" replace />;
+  if (!user) return <SignInModal />;
   return children;
 }
 
@@ -23,11 +23,10 @@ export default function App() {
     <AuthProvider>
       <BrowserRouter>
         <Navbar />
-        <div style={{ padding: 12 }}>
+        <SignInModal />
+        <div>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/sign-in" element={<SignIn />} />
-            <Route path="/sign-up" element={<SignUp />} />
             <Route
               path="/dashboard"
               element={
@@ -52,6 +51,7 @@ export default function App() {
                 </Protected>
               }
             />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
         <Footer />
