@@ -6,8 +6,8 @@ export const ensureCsrfCookie = (req, res, next) => {
     const token = crypto.randomBytes(24).toString("hex");
     res.cookie(CSRF_COOKIE_NAME, token, {
       httpOnly: false,
-      sameSite: NODE_ENV == "production" ? "none" : "lax",
-      secure: NODE_ENV === "production",
+      sameSite: "none",
+      secure: true,
       path: "/",
       maxAge: 24 * 60 * 60 * 1000, // 1d
     });

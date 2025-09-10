@@ -10,21 +10,14 @@ const api = axios.create({
 });
 
 // Interceptor to log and manually set CSRF token if needed
-api.interceptors.request.use(
-  (config) => {
-    const csrfToken = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("csrf_token="))
-      ?.split("=")[1];
-
-    if (csrfToken) {
-      config.headers["x-csrf-token"] = csrfToken;
-    } else {
-      console.warn("CSRF token not found in cookies");
-    }
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
+api.interceptors.request.use((config) => {
+  const csrfMatch = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("csrf_token="));
+  if (csrfMatch) {
+    config.headers["x-csrf-token"] = csrfMatch.split("=")[1];
+  }
+  return config;
+});
 
 export default api;

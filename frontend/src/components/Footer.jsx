@@ -143,7 +143,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto mt-8 text-center text-xs text-[#5f471d] border-t border-[#e5e0d2] pt-4">
-        © 2025 BlogGenAI by Shiva Gheji. All rights reserved. technology.
+        © 2025 BlogGenAI by Shiva Gheji. All rights reserved.
       </div>
     </footer>
   );
