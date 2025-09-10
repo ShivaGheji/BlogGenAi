@@ -6,11 +6,11 @@ import {
   getBlog,
   deleteBlog,
 } from "../controllers/blog.controller.js";
-import rateLimiter from "../utils/rateLimit.js";
+import limiter from "../utils/rateLimit.js";
 
 const blogRoutes = express.Router();
 
-blogRoutes.post("/generate", requireAuth, rateLimiter, generateBlog);
+blogRoutes.post("/generate", requireAuth, limiter, generateBlog);
 blogRoutes.get("/", requireAuth, listBlogs);
 blogRoutes.get("/:id", requireAuth, getBlog);
 blogRoutes.delete("/:id", requireAuth, deleteBlog);

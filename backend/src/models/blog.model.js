@@ -9,8 +9,8 @@ const blogSchema = new mongoose.Schema({
   targetAudience: { type: String, default: "" },
   keywords: { type: [String], default: [] },
   wordCount: { type: Number, default: 0 },
-  content: { type: String, required: true }, // stored as Markdown
-  summary: { type: String, required: true },
+  content: { type: String, required: true },
+  // summary: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
 });
 

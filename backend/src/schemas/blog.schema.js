@@ -15,7 +15,7 @@ export const generateBlogSchema = z.object({
     .max(100, "targetAudience can have at most 100 characters")
     .optional()
     .default("General Audience"),
-  keywords: z.array(z.string()).optional().default([]),
+  keywords: z.string().array().optional().default([]),
   // title: z.string().min(3, "title is too short").optional(),
 });
 

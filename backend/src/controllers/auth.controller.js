@@ -16,7 +16,10 @@ export const signUp = async (req, res, next) => {
     res.status(201).json({
       success: true,
       message: "User registered successfully",
-      data: { token, user },
+      data: {
+        // token,
+        user,
+      },
     });
   } catch (err) {
     next(err);
@@ -33,7 +36,7 @@ export const signIn = async (req, res, next) => {
       success: true,
       message: "User signed in successfully",
       data: {
-        token,
+        // token,
         user,
       },
     });

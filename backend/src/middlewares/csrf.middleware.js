@@ -6,23 +6,19 @@ export const ensureCsrfCookie = (req, res, next) => {
     const token = crypto.randomBytes(24).toString("hex");
     res.cookie(CSRF_COOKIE_NAME, token, {
       httpOnly: false,
-      sameSite: "Lax",
+      sameSite: NODE_ENV == "production" ? "none" : "lax",
       secure: NODE_ENV === "production",
       path: "/",
-      maxAge: 1000 * 60 * 60 * 24 * 7, // 7d
+      maxAge: 24 * 60 * 60 * 1000, // 1d
     });
   }
   next();
 };
 
-const unsafeMethods = new Set(["POST", "PATCH", "PUT", "DELETE"]);
-const csrfSkipPaths = new Set(["/api/auth/sign-in", "/api/auth/sign-up"]);
-
 export const csrfProtect = (req, res, next) => {
-  if (!unsafeMethods.has(req.method) || csrfSkipPaths.has(req.path))
-    return next();
   const cookieToken = req.cookies[CSRF_COOKIE_NAME];
-  const headerToken = (req.headers[CSRF_HEADER_NAME] || "").toString();
+  const headerToken = req.headers[CSRF_HEADER_NAME];
+
   if (!cookieToken || !headerToken || cookieToken !== headerToken) {
     const error = new Error("CSRF validation failed");
     error.statusCode = 403;

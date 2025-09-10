@@ -33,7 +33,7 @@ export async function generateBlog(req, res, next) {
       keywords,
       wordCount,
       content: content.contentMarkdown || "",
-      summary: content.summary || "",
+      // summary: content.summary || "",
     });
 
     await blog.save();
@@ -59,7 +59,7 @@ export async function listBlogs(req, res, next) {
         .sort({ createdAt: -1 })
         .skip(skip)
         .limit(limitInt)
-        .select("title createdAt wordCount tone summary")
+        .select("title createdAt wordCount tone content")
         .lean(),
       Blog.countDocuments({ user: req.user.id }),
     ]);
