@@ -70,16 +70,14 @@ ${prompt}
         type: Type.OBJECT,
         properties: {
           title: {
-            type: Type.STRING,
+            type: "string",
+            description:
+              "The title of the blog post, formatted as plain text. It should be concise, engaging, and reflective of the blog's main topic.",
           },
           contentMarkdown: {
-            type: Type.STRING,
+            type: "string",
             description:
-              "Full blog content in markdown, including headings and summary.",
-          },
-          summary: {
-            type: Type.STRING,
-            description: "A short summary (2-3 sentences) of the blog.",
+              "The complete blog content formatted in valid, clean, and well-structured Markdown. The content should begin with an engaging Introduction under a relevant heading (e.g., ## Introduction) to set the context, avoiding duplication of the title from the 'title' property. The main body should use clear sections with appropriate headings (e.g., ##, ###) and organized points using bullets (- or *) or numbered lists (1., 2., etc.) as needed. Include a Conclusion under its own heading (e.g., ## Conclusion) to summarize key points or provide a call-to-action when relevant. Ensure proper Markdown syntax, consistent formatting, and avoid unnecessary or redundant elements. Code blocks, tables, or images (with alt text) can be included if they enhance the content.",
           },
         },
         propertyOrdering: ["title", "contentMarkdown"],
