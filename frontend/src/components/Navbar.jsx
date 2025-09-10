@@ -117,13 +117,13 @@ export default function Navbar() {
             <>
               <button
                 onClick={toggleSignInModal}
-                className="text-[#5f471d] hover:text-[#5b4824] font-medium transition-colors duration-200"
+                className="text-[#5f471d] hover:text-[#ae7615] font-medium transition-colors duration-200"
               >
                 Sign In
               </button>
               <button
                 onClick={toggleSignUpModal}
-                className="text-[#5f471d] hover:text-[#5b4824] font-medium transition-colors duration-200"
+                className="text-[#5f471d] hover:text-[#ae7615] font-medium transition-colors duration-200"
               >
                 Sign Up
               </button>
@@ -184,7 +184,7 @@ export default function Navbar() {
                     toggleSignInModal();
                     toggleMenu();
                   }}
-                  className="text-[#5f471d] hover:text-[#5b4824] font-medium transition-colors duration-200"
+                  className="text-[#5f471d] hover:text-[#ae7615] font-medium transition-colors duration-200"
                   // onClick={toggleMenu}
                 >
                   Sign In
@@ -194,7 +194,7 @@ export default function Navbar() {
                     toggleSignUpModal();
                     toggleMenu();
                   }}
-                  className="text-[#5f471d] hover:text-[#5b4824] font-medium transition-colors duration-200"
+                  className="text-[#5f471d] hover:text-[#ae7615] font-medium transition-colors duration-200"
                 >
                   Sign Up
                 </button>
