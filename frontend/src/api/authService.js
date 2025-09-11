@@ -16,5 +16,10 @@ export const me = async () => {
 };
 
 export const signOut = async () => {
-  await api.post("/auth/sign-out");
+  try {
+    await api.post("/auth/sign-out");
+    window.__showToast__ && window.__showToast__("signed out", "success");
+  } catch (err) {
+    window.__showToast__ && window.__showToast__("Failed to sign out", "error");
+  }
 };
