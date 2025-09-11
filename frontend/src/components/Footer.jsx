@@ -22,7 +22,7 @@ export default function Footer() {
           </p>
           <div className="flex space-x-4">
             <a
-              href="https://twitter.com"
+              href="https://x.com/ShivaGheji"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
@@ -36,7 +36,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/shivagheji/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -50,7 +50,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/ShivaGheji"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -71,7 +71,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="#"
+                  href="https://github.com/ShivaGheji/BlogGenAi"
                   className="hover:text-[#5b4824] transition-colors duration-200"
                 >
                   Features
@@ -87,7 +87,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://github.com/ShivaGheji/BlogGenAi"
                   className="hover:text-[#5b4824] transition-colors duration-200"
                 >
                   API
@@ -95,7 +95,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://github.com/ShivaGheji/BlogGenAi"
                   className="hover:text-[#5b4824] transition-colors duration-200"
                 >
                   Documentation
@@ -143,7 +143,11 @@ export default function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto mt-8 text-center text-xs text-[#5f471d] border-t border-[#e5e0d2] pt-4">
-        © 2025 BlogGenAI by Shiva Gheji. All rights reserved.
+        © 2025 BlogGenAI by{" "}
+        <span className="text-indigo-950 hover:text-indigo-800 underline">
+          <a href="https://www.linkedin.com/in/shivagheji/">Shiva Gheji</a>
+        </span>
+        . All rights reserved.
       </div>
     </footer>
   );
