@@ -6,7 +6,7 @@ import { signInSchema } from "../utils/validators";
 import { useAuth } from "../context/AuthProvider";
 
 export default function SignInModal({ isOpen, onClose }) {
-  const { login } = useAuth();
+  const { login, loading } = useAuth();
   const { register, handleSubmit, formState } = useForm({
     resolver: zodResolver(signInSchema),
   });
@@ -78,9 +78,10 @@ export default function SignInModal({ isOpen, onClose }) {
 
           <button
             type="submit"
-            className="w-full bg-[#f7ce86] text-[#5b4824] px-4 py-2 rounded-[0.875rem] hover:bg-[#f9dea9] transition-colors duration-200 font-medium"
+            disabled={loading}
+            className="w-full bg-[#f7ce86] text-[#5b4824] px-4 py-2 rounded-[0.875rem] hover:bg-[#f9dea9] transition-colors duration-200 font-medium disabled:bg-[#e6ecd3] disabled:text-[#636e59] disabled:cursor-not-allowed"
           >
-            Sign In
+            {loading ? "Signing In..." : "Sign In"}
           </button>
 
           {(formState.errors.email ||

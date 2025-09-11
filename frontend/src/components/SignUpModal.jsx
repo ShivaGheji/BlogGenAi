@@ -6,7 +6,7 @@ import { signUpSchema } from "../utils/validators";
 import { useAuth } from "../context/AuthProvider";
 
 export default function SignUpModal({ isOpen, onClose }) {
-  const { registerUser } = useAuth();
+  const { registerUser, loading } = useAuth();
   const { register, handleSubmit, formState } = useForm({
     resolver: zodResolver(signUpSchema),
   });
@@ -89,9 +89,10 @@ export default function SignUpModal({ isOpen, onClose }) {
           </div>
           <button
             type="submit"
-            className="w-full bg-[#f7ce86] text-[#5b4824] px-4 py-2 rounded-[0.875rem] hover:bg-[#f9dea9] transition-colors duration-200 font-medium"
+            disabled={loading}
+            className="w-full bg-[#f7ce86] text-[#5b4824] px-4 py-2 rounded-[0.875rem] hover:bg-[#f9dea9] transition-colors duration-200 font-medium disabled:bg-[#e6ecd3] disabled:text-[#636e59] disabled:cursor-not-allowed"
           >
-            Sign Up
+            {loading ? "Signing Up..." : "Sign Up"}
           </button>
           {(formState.errors.name ||
             formState.errors.email ||

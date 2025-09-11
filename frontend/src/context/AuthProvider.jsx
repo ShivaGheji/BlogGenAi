@@ -9,6 +9,7 @@ export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [checking, setChecking] = useState(true);
   const [isSignInOpen, setIsSignInOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -25,26 +26,34 @@ export default function AuthProvider({ children }) {
   }, []);
 
   const login = async (payload) => {
-    const res = await authAPI.login(payload);
+    setLoading(true);
     try {
+      const res = await authAPI.login(payload);
       const data = await authAPI.me();
       setUser(data.user || data);
       setIsSignInOpen(false);
+      return res;
     } catch (e) {
-      if (res.user) setUser(res.user);
+      if (res?.user) setUser(res.user);
+      throw e;
+    } finally {
+      setLoading(false);
     }
-    return res;
   };
 
   const registerUser = async (payload) => {
-    const res = await authAPI.register(payload);
     try {
+      setLoading(true);
+      const res = await authAPI.register(payload);
       const data = await authAPI.me();
       setUser(data.user || data);
+      return res;
     } catch (e) {
-      if (res.user) setUser(res.user);
+      if (res?.user) setUser(res.user);
+      throw e;
+    } finally {
+      setLoading(false);
     }
-    return res;
   };
 
   const logout = async () => {
@@ -54,7 +63,7 @@ export default function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, checking, login, registerUser, logout }}
+      value={{ user, checking, login, registerUser, logout, loading }}
     >
       {children}
     </AuthContext.Provider>
