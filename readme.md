@@ -2,7 +2,7 @@
 
 Welcome to **BlogGenAI**, a sleek and secure web application for generating, managing, and tracking blog content. Built by Shiva Gheji, this full-stack project combines a React frontend with a Node.js/Express backend, offering a user-friendly experience for bloggers and developers. Deployed with the frontend on Vercel and backend on Render, it showcases modern web development practices.
 
-![BlogGenAI Screenshot](https://blogenai.vercel.app/screenshot.png)
+![BlogGenAI Screenshot](./frontend/public/screenshot.png)
 _Preview of the BlogGenAi Interface_
 
 ## 📋 Table of Contents
