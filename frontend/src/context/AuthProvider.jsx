@@ -13,6 +13,7 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     (async () => {
       try {
+        await api.get("/api/auth/health");
         const data = await authAPI.me();
         setUser(data.user || data);
       } catch (err) {

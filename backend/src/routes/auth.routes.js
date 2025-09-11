@@ -6,8 +6,8 @@ import { ensureCsrfCookie } from "../middlewares/csrf.middleware.js";
 
 const authRouter = Router();
 
-authRouter.get("/csrf", ensureCsrfCookie, (req, res) => {
-  res.json({ message: "CSRF cookie set" });
+authRouter.get("/health", ensureCsrfCookie, (req, res) => {
+  res.status(200).json({ status: "healthy" });
 });
 
 authRouter.post("/sign-up", signUp);
