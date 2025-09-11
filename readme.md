@@ -7,20 +7,20 @@ _Preview of the BlogGenAi Interface_
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
+- [Overview](#-overview)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Getting Started](#-getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Environment Setup](#environment-setup)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Security](#security)
-- [Deployment](#deployment)
-- [Future Improvements](#future-improvements)
-- [Contributing](#contributing)
-- [Contact](#contact)
+- [Usage](#-usage)
+- [API Documentation](#-api-documentation)
+- [Security](#-security)
+- [Deployment](#-deployment)
+- [Future Improvements](#-future-improvements)
+- [Contributing](#-contributing)
+- [Contact](#-contact)
 
 ## 🌟 Overview
 
