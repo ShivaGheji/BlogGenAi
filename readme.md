@@ -26,7 +26,7 @@ _Preview of the BlogGenAi Interface_
 
 BlogGenAI is a secure web application that allows users to generate AI-powered blog posts with customizable parameters like keywords, tone, and target audience. Built with modern web technologies, it features robust authentication, CSRF protection, and a responsive design that works seamlessly across all devices.
 
-**Live Demo:** [https://blog-gen-ai-rose.vercel.app](https://blogenai.vercel.app)
+**Live Demo:** [https://blogenai.vercel.app](https://blogenai.vercel.app)
 
 ## ✨ Features
 
